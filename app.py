@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, request, flash, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Message, Mail
 import json
+import os
 from datetime import datetime
 
 
@@ -10,7 +11,7 @@ app.secret_key = "123_secret_key"
 with open("config.JSON", "r") as f:
     param = json.load(f)["key"]
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:@localhost/bastikiintership"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATION"] = False
 db = SQLAlchemy(app)
 
