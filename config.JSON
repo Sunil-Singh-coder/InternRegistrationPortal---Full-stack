@@ -1,0 +1,13 @@
+{
+
+    "key":{
+        "local-uri":"mysql+pymysql://root:@localhost/backend",
+        "produ-uri":"",
+        "gmail-admin": "jdsgshsjs@gmail.com",
+        "gmail-password":"ofatjkhiiuzidxtt",
+        
+        "email-admin":"singhsunil34500@gmail.com",
+        "password-admin":"Sunil274203"
+    }
+
+}
