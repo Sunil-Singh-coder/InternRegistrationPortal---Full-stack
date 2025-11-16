@@ -1,0 +1,16 @@
+{
+
+    "key":{
+        "local-uri":"mysql+pymysql://root:@localhost/bastikiintership",
+        "produ-uri":"",
+        "gmail-admin": "Noreply.evolveteam@gmail.com",
+        "gmail-main-admin": "Evolveofficialindia@gmail.com",
+        "gmail-password":"vpjcnrgtsdkpzqyn",
+        
+        "email-admin":"singhsunil34500@gmail.com",
+        "password-admin":"Sunil274203"
+    }
+    
+}
+
+

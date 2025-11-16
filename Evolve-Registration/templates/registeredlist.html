@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block body %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+
+
+<table class =" table table-bordered table-striped border p-4 rounded shadow bg-light">
+<thead class="table-dark">
+        {% if contents|length==0 %}
+          
+          <p>NO record found</p>
+
+          {% else %}
+<tr>
+    <th>S.NO</th>
+    <th>Full Name</th>
+    <th>Email Adress</th>
+    <th>Phone Number</th>
+    <th>School</th>
+    <th>Class</th>
+    <th>Date & Time</th>
+</tr>
+</thead>
+<tbody>
+    {% for content in contents %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{content.name}}</td>
+        <td>{{content.emailid}}</td>
+        <td>{{content.contactno}}</td>
+        <td>{{content.college}}</td>
+        <td>{{content.course}}</td>
+        <td>{{content.date}}</td>
+    </tr>
+    {% endfor %}
+
+    {% endif %}
+
+</tbody>
+
+
+
+
+
+
+</table>
+
+{% endblock %}

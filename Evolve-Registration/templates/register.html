@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E.V.O.L.V.E-Registration-Form
+     
+    
+  </title>
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='image.png') }}">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+   .logo-img {
+    width: 18vw;
+    max-width: 90px;   /* Desktop limit */
+    min-width: 40px;   /* Mobile minimum */
+    height: auto;
+}
+@media (max-width: 768px) {
+    .logo-img {
+        width: 22vw;
+        max-width: 60px; /* Mobile पर छोटा */
+    }
+}
+@media (max-width: 480px) {
+    .logo-img {
+        width: 28vw;
+        max-width: 45px; /* बहुत छोटे screen पर और छोटा */
+    }
+}
+/* Navbar में logo हमेशा left रहे */
+@media (max-width: 992px) {   /* Tablet + Mobile */
+    .navbar .container-fluid {
+        display: flex !important;
+        justify-content: start !important;
+        align-items: center !important;
+    }
+
+    .navbar-brand {
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+}
+
+
+ 
+
+
+
+  </style>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+     <!-- <img src="{{ url_for('static', filename='image.png') }}" class="img-fluid rounded-circle border border-2 border-primary p-1" 
+     alt="EVOLVE Logo" style="max-width: 80px; height: auto;"> -->
+     <!-- <img src="{{ url_for('static', filename='image.png') }}" class="img-fluid rounded-circle border border-2 border-primary p-1" 
+     alt="EVOLVE Logo" style="max-width: 100px; height: auto;"> -->
+
+<a class="navbar-brand d-flex align-items-center " href="/">
+    <img src="{{ url_for('static', filename='image.png') }}"
+         class="img-fluid rounded-circle border border-2 border-primary p-1 logo-img"
+         alt="EVOLVE Logo">
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
+        <!-- <a class="nav-link" href="#">Features</a> -->
+        <!-- <a class="nav-link" href="#">Pricing</a> -->
+        <a class="nav-link " aria-disabled="false" href="/admin">Admin</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+      
+
+
+
+<div class="container mt-5">
+  <h2 class="mb-4 text-center"> Registration Form</h2>
+
+  <!-- {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %} -->
+
+  <form action="/" method="POST" enctype="multipart/form-data" class="border p-4 rounded shadow bg-light">
+    <div class="mb-3">
+      <label for="name" class="form-label">Full Name</label>
+      <input type="text" name="name" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" name="email" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone Number</label>
+      <input type="tel" name="phone" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="college" class="form-label">School</label>
+      <input type="text" name="college" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="course" class="form-label">Class</label>
+      <input type="text" name="course" class="form-control" required>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Register</button>
+
+    <!-- Admin button on body part  -->
+    <!-- <a href="/admin" class="btn btn-primary">For Admin</a> -->
+
+  </form>
+</div>
+<footer class="bg-dark text-light pt-4">
+  <div class="container">
+    <div class="row">
+
+      <!-- EVOLVE Name + Tagline -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <h5 class="text-uppercase">E.V.O.L.V.E</h5>
+        <p>
+          Education Via Online Learning & Virtual Evolution.<br>
+          Quality learning for Classes 3rd to 5th with English + Practice Questions.
+        </p>
+      </div>
+
+      <!-- Useful Links -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <h5 class="text-uppercase">Useful Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">Home</a></li>
+          <li><a href="#" class="text-light text-decoration-none">About Us</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Registration</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Tuition Details -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <h5 class="text-uppercase">Tuition Details</h5>
+        <p class="mb-1">Classes: 3rd to 5th</p>
+        <p class="mb-1">Mode: Online (via offline technology)</p>
+        <p class="mb-0">Open for Registration</p>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <h5 class="text-uppercase">Contact Us</h5>
+        <p class="mb-1"><i class="fas fa-phone me-2"></i>+91 6306 659 343</p>
+        <p class="mb-1"><i class="fas fa-phone me-2"></i>+91 9693 256 008</p>
+        <p class="mb-1"><strong>CO:</strong> Adarsh Kr.</p>
+        <p class="mb-1"><strong>CO:</strong> Ayush Pandey</p>
+        <p class="mb-0"><i class="fas fa-envelope me-2"></i>
+          <a href="mailto:aimers.school.of.aim@gmail.com" class="text-light text-decoration-none">
+           Evolveofficialindia@gmail.com 
+          </a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center text-light py-3">
+    <small>&copy; 2025 E.V.O.L.V.E. All Rights Reserved.</small>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
